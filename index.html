@@ -82,9 +82,9 @@
                             <p class="cua-descripcion">Este proyecto consiste en la creación de una página principal para una cafetería, desarrollada con HTML, CSS Y JavaScript. Que incluye una barra de navegación, una sección principal con imagen destacada, apartados informativos (Nosotros, Carta, Historia, Contacto), un enlace a la carta. digital en PDF, y un pie de página con datos de contacto y ubicación. Todo el diseño es responsivo para adaptarse a diferentes dispositivos.</p>
                         </div>
                         <div class="cuadro1">
-                            <div class="cua-imagen"><img src="Imagen/Imagen 1.jpg"></div>
-                            <p class="cua-titulo">Proyecto 2</p>
-                            <p class="cua-descripcion">Descripción del proyecto 2</p>
+                            <div class="cua-imagen"><img src="Imagen/Proyecto02.png"></div>
+                            <p class="cua-titulo">Aplicacion web</p>
+                            <p class="cua-descripcion">Este proyecto es un sistema de gestión de inventarios desarrollado en PHP y con base de datos MYSQL. Permite a los usuarios autenticados gestionar productos, incluyendo la adición, edición y eliminación de productos. El sistema también incluye características como la generación de códigos de barras, exportación de datos a Excel, y paginación dinámica. La interfaz está construida con Bootstrap para asegurar una experiencia de usuario moderna y responsiva. Herramientas: JsBarcode, SheetJS (xlsx), Fetch API</p>
                         </div>
                         <div class="cuadro1">
                             <div class="cua-imagen"><img src="Imagen/Imagen 3.jpg"></div>
@@ -131,6 +131,10 @@
                         <p>
                             Fundamentos esenciales de la programación - LinkedIn Learning 
                             <button class="certificado" onclick="window.open('https://www.linkedin.com/learning/certificates/f1c1068e85c94260007cd578ee5a64cdb35bf63f1feadd7ecd941655cf1539c1?trk=share_certificate', '_blank')">Certificado</button>
+                        </p>
+                        <p>
+                            Programa de Voluntariado Universitario
+                            <button class="certificado" id="sipan voluntario">Certificado</button>
                         </p>
                     </div>
                 </div>
@@ -203,6 +207,27 @@
     </div>
 
     <script>
+                // Hamburger Menu Functionality
+                document.getElementById('hamburger-menu').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('sidebar').classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
         // Evento para el CV
         document.getElementById('curriculum').addEventListener('click', function() {
             // Reemplaza esta ruta con la ubicación real de tu archivo PDF
@@ -235,6 +260,12 @@
                         document.getElementById('Development').addEventListener('click', function() {
             // Reemplaza esta ruta con la ubicación real de tu archivo PDF
             const pdfUrl = 'Documento/Development.pdf';
+            window.open(pdfUrl, '_blank'); // Abre el archivo en una nueva pestaña
+        });
+                        // Evento para el certificado de voluntario
+                        document.getElementById('sipan voluntario').addEventListener('click', function() {
+            // Reemplaza esta ruta con la ubicación real de tu archivo PDF
+            const pdfUrl = 'Documento/Certificado Sipan Voluntario.pdf';
             window.open(pdfUrl, '_blank'); // Abre el archivo en una nueva pestaña
         });
     </script>
